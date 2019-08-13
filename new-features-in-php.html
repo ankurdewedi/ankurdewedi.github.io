@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+	<title>Welcome | ankurdewedi.github.io</title>
+	<link href="/assets/styles/main.min.css" rel="stylesheet"/>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145354328-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-145354328-1');
+	</script>
+  </head>
+  <body>
+	<div id="app" class="animated fadeIn">
+		
+		<div class="s">
+		<ul class="navigation">
+			<li><a href="/" style="font-size:20px;"><img src="logo.png" /></a></li>
+			<li><a href="/">Home</a>
+			<li><a href="/">Blog</a>
+			<li><a href="/about.html">About</a></li>
+		</ul>
+		</div>
+		
+		<section class="site-header" style="position:relative;">
+			<a href="javascript:void(0);" class="hsli" style="">
+				<i class="fa fa-list"></i>
+			</a>
+			<h1 class="site-name" id="topm"></h1>
+			<h2 class="site-tagline hide">Provides relevant tech stack to showcase your awesomeness through digital solutions.</h2>
+		</section>
+
+		<div class="m-b introo">
+
+		<div class="container" style="">
+				<div class="col-md-12">
+					<h2 class="h2"></h2>
+				</div>
+		</div>
+
+		<div class="container">
+			<div class="row">	
+				<div class="col-md-9">				
+					<div class="blog-summ">
+						<div class="row">
+							<div class="col-md-12">
+								<h1 class="heading">New Features In PHP</h1>
+								<div class="date" style="">
+									<span>10 Aug, 2019 </span> &nbsp;
+									<span class="tag">Programming</span>
+									<span class="tag">PHP</span>
+									<span class="tag">PHP 7.0</span>
+								</div>
+								<img class="image img-responsive" src="b1.png" />
+								<div class="text">
+									<p class="text">
+										PHP is the one of the major programming language that runs up the internet and for such a long time 
+										there wasn't any changes in the php niche, but time has changed now and with the arrival of PHP 7.X
+										we got new boost of power and speed.Despite the fact that migrating from PHP 5.6 to 7.x is pretty simple most of the people either fear
+										to migrate to 7.x due to compatibility issues or they just don't know the perks of getting 7.x. PHP is fairly simple to learn unlike other
+										languages and is widespread which makes it event economical than most other languages like Python, C# or Java, though
+										with new version PHP is almost near them and ready to rule the internet again.
+										<br />
+										Lets see which new features are included in version 7.x, that can help you pump up your development:
+										<br/>
+										
+									</p>
+									
+									<div class="">
+										<h2>Scalar type declarations</h2>
+										<p class="text">	
+											Scalar type declarations are of two types: coercive (default) and strict. The following types for parameters can now be enforced (either coercively or strictly): strings (string), integers (int), floating-point numbers (float), and booleans (bool). They augment the other types introduced in PHP 5: class names, interfaces, array and callable. 
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Scalar type declarations
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+													<code>
+&lt;?php
+// Coercive mode
+function sumOfInts(int ...$ints)
+{
+	return array_sum($ints);
+}
+
+var_dump(sumOfInts(2, '3', 4.1));
+
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+ int(9)
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+										To enable strict mode, a single declare directive must be placed at the top of the file. This means that the strictness of typing for scalars is configured on a per-file basis. This directive not only affects the type declarations of parameters, but also a function's return type (see return type declarations, built-in PHP functions, and functions from loaded extensions.
+										<br/>
+										Full documentation and examples of scalar type declarations can be found in the type declaration reference.
+										</p>									
+									</div>		
+									
+
+
+									<div class="">
+										<h2>Return type declarations</h2>
+										<p class="text">	
+												PHP 7 adds support for return type declarations. Similarly to argument type declarations, return type declarations specify the type of the value that will be returned from a function. The same types are available for return type declarations as are available for argument type declarations.
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Return type declarations
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+													<code>
+&lt;?php
+
+function arraysSum(array ...$arrays): array
+{
+    return array_map(function(array $array): int {
+        return array_sum($array);
+    }, $arrays);
+}
+
+print_r(arraysSum([1,2,3], [4,5,6], [7,8,9]));
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+Array
+(
+    [0] => 6
+    [1] => 15
+    [2] => 24
+)
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+										</p>									
+									</div>		
+
+									<div class="">
+										<h2>Null coalescing operator</h2>
+										<p class="text">	
+										The null coalescing operator (??) has been added as syntactic sugar for the common case of needing to use a ternary in conjunction with isset(). It returns its first operand if it exists and is not NULL; otherwise it returns its second operand.
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Null coalescing operator
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+													<code>
+&lt;?php
+// Fetches the value of $_GET['user'] and returns 'nobody'
+// if it does not exist.
+$username = $_GET['user'] ?? 'nobody';
+// This is equivalent to:
+$username = isset($_GET['user']) ? $_GET['user'] : 'nobody';
+
+// Coalescing can be chained: this will return the first
+// defined value out of $_GET['user'], $_POST['user'], and
+// 'nobody'.
+$username = $_GET['user'] ?? $_POST['user'] ?? 'nobody';
+print_r($username)
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+nobody
+										</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+										</p>									
+									</div>		
+
+									<div class="">
+										<h2>Spaceship operator</h2>
+										<p class="text">	
+										The spaceship operator is used for comparing two expressions. It returns -1, 0 or 1 when $a is respectively less than, equal to, or greater than $b. Comparisons are performed according to PHP's usual type comparison rules.
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Spaceship operator
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+													<code>
+&lt;?php
+// Integers
+echo 1 &lt;=&gt; 1; // 0
+echo 1 &lt;=&gt; 2; // -1
+echo 2 &lt;=&gt; 1; // 1
+
+// Floats
+echo 1.5 &lt;=&gt; 1.5; // 0
+echo 1.5 &lt;=&gt; 2.5; // -1
+echo 2.5 &lt;=&gt; 1.5; // 1
+ 
+// Strings
+echo "a" &lt;=&gt; "a"; // 0
+echo "a" &lt;=&gt; "b"; // -1
+echo "b" &lt;=&gt; "a"; // 1
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+0
+-1
+1
+0
+-1
+1
+0
+-1
+1
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+										</p>									
+									</div>		
+
+									<div class="">
+										<h2>Constant arrays using define()</h2>
+										<p class="text">	
+										Array constants can now be defined with define(). In PHP 5.6, they could only be defined with const.
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Constant arrays using define()
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+													<code>
+&lt;?php
+define('ANIMALS', [
+    'dog',
+    'cat',
+    'bird'
+]);
+
+echo ANIMALS[1]; // outputs "cat"
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+cat
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+										</p>									
+									</div>		
+
+									<div class="">
+										<h2>Anonymous classes</h2>
+										<p class="text">	
+										Support for anonymous classes has been added via new class. These can be used in place of full class definitions for throwaway objects:
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Anonymous classes
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+													<code>
+&lt;?php
+
+interface Logger {
+    public function log(string $msg);
+}
+
+class Application {
+    private $logger;
+
+    public function getLogger(): Logger {
+         return $this->logger;
+    }
+
+    public function setLogger(Logger $logger) {
+         $this->logger = $logger;
+    }
+}
+
+$app = new Application;
+$app->setLogger(new class implements Logger {
+    public function log(string $msg) {
+        echo $msg;
+    }
+});
+
+var_dump($app->getLogger());
+
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+object(class@anonymous)#2 (0) {
+}
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+										</p>									
+									</div>		
+								
+									<div class="">
+										<h2>Unicode codepoint escape syntax</h2>
+										<p class="text">	
+										This takes a Unicode codepoint in hexadecimal form, and outputs that codepoint in UTF-8 to a double-quoted string or a heredoc. Any valid codepoint is accepted, with leading 0's being optional.
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Unicode codepoint escape syntax
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+&lt;?php											<code>
+echo "\u{aa}";
+echo "\u{0000aa}";
+echo "\u{9999}";
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+ª
+ª 
+香
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+										</p>									
+									</div>		
+
+									<div class="">
+										<h2>Closure::call()</h2>
+										<p class="text">	
+Closure::call() is a more performant, shorthand way of temporarily binding an object scope to a closure and invoking it.										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Closure::call()
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+&lt;?php												<code>
+class A {private $x = 1;}
+
+// Pre PHP 7 code
+$getX = function() {return $this->x;};
+$getXCB = $getX->bindTo(new A, 'A'); // intermediate closure
+echo $getXCB();
+
+// PHP 7+ code
+$getX = function() {return $this->x;};
+echo $getX->call(new A);
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+1
+1
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+										</p>									
+									</div>		
+
+									<div class="">
+										<h2>Filtered unserialize()</h2>
+										<p class="text">	
+										This feature seeks to provide better security when unserializing objects on untrusted data. It prevents possible code injections by enabling the developer to whitelist classes that can be unserialized.
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Filtered unserialize()
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+												<code>
+&lt;?php
+
+// converts all objects into __PHP_Incomplete_Class object
+$data = unserialize($foo, ["allowed_classes" =&gt; false]);
+
+// converts all objects into __PHP_Incomplete_Class object except those of MyClass and MyClass2
+$data = unserialize($foo, ["allowed_classes" =&gt; ["MyClass", "MyClass2"]]);
+
+// default behaviour (same as omitting the second argument) that accepts all classes
+$data = unserialize($foo, ["allowed_classes" =&gt; true]);
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+										</p>									
+									</div>		
+							
+									<div class="">
+										<h2>IntlChar</h2>
+										<p class="text">	
+											The new IntlChar class seeks to expose additional ICU functionality. The class itself defines a number of static methods and constants that can be used to manipulate unicode characters.
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												IntlChar
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+												<code>
+&lt;?php
+
+printf('%x', IntlChar::CODEPOINT_MAX);
+echo IntlChar::charName('@');
+var_dump(IntlChar::ispunct('!'));
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+10ffff
+COMMERCIAL AT
+bool(true)
+In order to use this class, the Intl extension must be installed.
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+										</p>									
+									</div>		
+										
+									<div class="">
+										<h2>Expectations</h2>
+										<p class="text">	
+					Expectations are a backwards compatible enhancement to the older assert() function. They allow for zero-cost assertions in production code, and provide the ability to throw custom exceptions when the assertion fails.
+
+While the old API continues to be maintained for compatibility, assert() is now a language construct, allowing the first parameter to be an expression rather than just a string to be evaluated or a boolean value to be tested.
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Expectations
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+												<code>
+&lt;?php
+
+ini_set('assert.exception', 1);
+
+class CustomError extends AssertionError {}
+
+assert(false, new CustomError('Some error message'));
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+Fatal error: Uncaught CustomError: Some error message
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+										</p>									
+									</div>		
+
+									<div class="">
+										<h2>Group use declarations</h2>
+										<p class="text">	
+														Classes, functions and constants being imported from the same namespace can now be grouped together in a single use statement.
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Group use declarations
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+												<code>
+&lt;?php
+
+// Pre PHP 7 code
+use some\namespace\ClassA;
+use some\namespace\ClassB;
+use some\namespace\ClassC as C;
+
+use function some\namespace\fn_a;
+use function some\namespace\fn_b;
+use function some\namespace\fn_c;
+
+use const some\namespace\ConstA;
+use const some\namespace\ConstB;
+use const some\namespace\ConstC;
+
+// PHP 7+ code
+use some\namespace\{ClassA, ClassB, ClassC as C};
+use function some\namespace\{fn_a, fn_b, fn_c};
+use const some\namespace\{ConstA, ConstB, ConstC};
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+										</p>									
+									</div>		
+					
+									<div class="">
+										<h2>Generator Return Expressions</h2>
+										<p class="text">	
+										This feature builds upon the generator functionality introduced into PHP 5.5. It enables for a return statement to be used within a generator to enable for a final expression to be returned (return by reference is not allowed). This value can be fetched using the new Generator::getReturn() method, which may only be used once the generator has finished yielding values.
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Generator Return Expressions
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+												<code>
+&lt;?php
+
+$gen = (function() {
+    yield 1;
+    yield 2;
+
+    return 3;
+})();
+
+foreach ($gen as $val) {
+    echo $val, PHP_EOL;
+}
+
+echo $gen->getReturn(), PHP_EOL;
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+1
+2
+3
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+											Being able to explicitly return a final value from a generator is a handy ability to have. This is because it enables for a final value to be returned by a generator (from perhaps some form of coroutine computation) that can be specifically handled by the client code executing the generator. This is far simpler than forcing the client code to firstly check whether the final value has been yielded, and then if so, to handle that value specifically.
+
+										</p>									
+									</div>		
+					
+									<div class="">
+										<h2>Generator delegation</h2>
+										<p class="text">	
+										Generators can now delegate to another generator, Traversable object or array automatically, without needing to write boilerplate in the outermost generator by using the yield from construct.
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Generator delegation
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+												<code>
+&lt;?php
+
+function gen()
+{
+    yield 1;
+    yield 2;
+    yield from gen2();
+}
+
+function gen2()
+{
+    yield 3;
+    yield 4;
+}
+
+foreach (gen() as $val)
+{
+    echo $val, PHP_EOL;
+}
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+1
+2
+3
+4
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+
+										</p>									
+									</div>		
+					
+									<div class="">
+										<h2>Integer division with intdiv()</h2>
+										<p class="text">	
+											The new intdiv() function performs an integer division of its operands and returns it.
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Integer division with intdiv()
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+												<code>
+&lt;?php
+var_dump(intdiv(10, 3));
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+~:code$ php code.php
+int(3)
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+
+										</p>									
+									</div>		
+					
+									<div class="">
+										<h2>Session options</h2>
+										<p class="text">	
+session_start() now accepts an array of options that override the session configuration directives normally set in php.ini.
+
+These options have also been expanded to support session.lazy_write, which is on by default and causes PHP to only overwrite any session file if the session data has changed, and read_and_close, which is an option that can only be passed to session_start() to indicate that the session data should be read and then the session should immediately be closed unchanged.
+
+For example, to set session.cache_limiter to private and immediately close the session after reading it:
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												Session options
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+												<code>
+&lt;?php
+session_start([
+    'cache_limiter' => 'private',
+    'read_and_close' => true,
+]);
+?&gt;
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+
+										</p>									
+									</div>		
+					
+									<div class="">
+										<h2>preg_replace_callback_array()</h2>
+										<p class="text">	
+The new preg_replace_callback_array() function enables code to be written more cleanly when using the preg_replace_callback() function. Prior to PHP 7, callbacks that needed to be executed per regular expression required the callback function to be polluted with lots of branching.
+
+Now, callbacks can be registered to each regular expression using an associative array, where the key is a regular expression and the value is a callback.
+
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												preg_replace_callback_array()
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+												<code>
+&lt;?php
+
+?&gt;
+
+
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+
+										</p>									
+									</div>		
+					
+									<div class="">
+										<h2>CSPRNG Functions</h2>
+										<p class="text">	
+										Two new functions have been added to generate cryptographically secure integers and strings in a cross platform way: random_bytes() and random_int().
+
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												CSPRNG Functions
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+												<code>
+&lt;?php
+
+?&gt;
+
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+
+										</p>									
+									</div>		
+					
+									<div class="">
+										<h2>list() can always unpack objects implementing ArrayAccess</h2>
+										<p class="text">	
+										Previously, list() was not guaranteed to operate correctly with objects implementing ArrayAccess. This has been fixed.
+
+										</p>
+										<div class="pcode row">
+											<div class="preode">
+												list() can always unpack objects implementing ArrayAccess
+											</div>
+											<div class="col-md-8 prefirst">										
+												<pre class="pfp">
+												<code>
+&lt;?php
+?&gt;
+
+													</code>	
+												</pre>
+											</div>
+											<div class="col-md-4">
+												<pre>
+													<code>
+
+													</code>
+												</pre>
+											</div>
+										</div>
+										<p class="text">
+
+										</p>									
+									</div>		
+
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					
+				</div>
+				
+				<div class="col-nd-3">
+				
+				
+				</div>
+				
+				
+			</div>	
+				
+				
+				
+				
+				
+		</div>
+		</div>
+		<div class="grid footer">
+			<div style="grid-column:1;grid-row:1;height:100%;width:100%;">
+					<svg  style="height:95%;width:100%;">
+						  <defs>
+							  <linearGradient id="Gradient11">
+								<stop class="stop11" offset="0%"/>
+								<stop class="stop21" offset="50%"/>
+								<stop class="stop31" offset="100%"/>
+							  </linearGradient>
+							  
+							  <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+								<stop offset="0%" stop-color="#23129f"/>
+								<stop offset="100%" stop-color="#ff0090"/>
+							  </linearGradient>
+							  
+							  <style type="text/css"><![CDATA[
+								#rect1 { fill: url(#Gradient1); }
+								.stop11 { stop-color: #edf2f7; }
+								.stop21 { stop-color: #2509ee; stop-opacity: 0.7; }
+								.stop31 { stop-color: #23129f; }
+							  ]]></style>
+						  </defs>
+						<circle fill="url(#Gradient11)" cx="50" cy="0" r="20" opacity="1"/>
+						<circle fill="url(#Gradient11)" cx="350" cy="290" r="150" opacity="1"/>
+						<circle fill="url(#Gradient11)" cx="250" cy="150" r="10" opacity="1"/>
+						<circle fill="url(#Gradient11)" cx="150" cy="90" r="35" opacity="1"/>
+						<circle fill="url(#Gradient11)" cx="250" cy="350" r="28" opacity="1"/>
+						<circle fill="url(#Gradient11)" cx="550" cy="250" r="17" opacity="1"/>
+						<circle fill="url(#Gradient11)" cx="450" cy="550" r="25" opacity="1"/>
+						<circle fill="url(#Gradient11)" cx="350" cy="550" r="13" opacity="1"/>
+						<circle fill="url(#Gradient11)" cx="250" cy="150" r="23" opacity="1"/>
+					</svg>
+			</div>
+			<div class="aldrich content">
+						<div style="width:100%;margin:auto;margin-top:17%;text-align:center;">
+						<p >
+							A Website is an important part of your digital strategy to increase your revenue manifold.<br/ ><br/ >
+							Website Development | Software Development | SEO | Digital Marketing<br/ ><br/ >
+							#php #python #javascript #html #css #API #git
+						</p>
+					</div>
+			</div>
+		</div>
+	</div>
+	<script src="/assets/scripts/main.min.js" ></script>
+  </body>
+</html>
